@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyBook - Flight Booking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="logo">✈️ SkyBook</div>
+        <div class="tagline">Book your next flight with ease</div>
+    </header>
+
+    <main class="container">
+
+        <!-- SEARCH SCREEN -->
+        <section id="searchScreen" class="screen active">
+            <div class="search-card">
+                <h1>Find Your Flight</h1>
+                <form id="searchForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="origin">From</label>
+                            <select id="origin" required></select>
+                        </div>
+                        <button type="button" id="swapBtn" class="swap-btn" title="Swap">⇄</button>
+                        <div class="form-group">
+                            <label for="destination">To</label>
+                            <select id="destination" required></select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="departDate">Departure Date</label>
+                            <input type="date" id="departDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="passengers">Passengers</label>
+                            <select id="passengers">
+                                <option value="1">1 Passenger</option>
+                                <option value="2">2 Passengers</option>
+                                <option value="3">3 Passengers</option>
+                                <option value="4">4 Passengers</option>
+                                <option value="5">5 Passengers</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="travelClass">Class</label>
+                            <select id="travelClass">
+                                <option value="Economy">Economy</option>
+                                <option value="Business">Business</option>
+                                <option value="First Class">First Class</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Search Flights</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- RESULTS SCREEN -->
+        <section id="resultsScreen" class="screen">
+            <div class="results-header">
+                <button class="btn btn-back" id="backToSearch">← New Search</button>
+                <div class="results-summary" id="resultsSummary"></div>
+            </div>
+            <div id="flightResults" class="flight-list"></div>
+        </section>
+
+        <!-- PASSENGER DETAILS SCREEN -->
+        <section id="detailsScreen" class="screen">
+            <div class="details-layout">
+                <div class="details-form-card">
+                    <button class="btn btn-back" id="backToResults">← Back to Results</button>
+                    <h2>Passenger Details</h2>
+                    <form id="passengerForm">
+                        <div id="passengerFields"></div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactEmail">Contact Email</label>
+                                <input type="email" id="contactEmail" required placeholder="you@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="contactPhone">Contact Phone</label>
+                                <input type="tel" id="contactPhone" required placeholder="+234 800 000 0000">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Confirm Booking</button>
+                    </form>
+                </div>
+
+                <aside class="flight-summary-card" id="flightSummaryCard"></aside>
+            </div>
+        </section>
+
+        <!-- CONFIRMATION SCREEN -->
+        <section id="confirmationScreen" class="screen">
+            <div class="confirmation-card">
+                <div class="confirmation-icon">✅</div>
+                <h1>Booking Confirmed!</h1>
+                <p class="confirmation-sub">Your flight has been successfully booked.</p>
+
+                <div class="booking-ref" id="bookingRef"></div>
+
+                <div class="confirmation-details" id="confirmationDetails"></div>
+
+                <div class="confirmation-actions">
+                    <button class="btn btn-secondary" id="newBookingBtn">Book Another Flight</button>
+                    <button class="btn btn-primary" id="viewBookingsBtn">View My Bookings</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- MY BOOKINGS SCREEN -->
+        <section id="bookingsScreen" class="screen">
+            <div class="results-header">
+                <button class="btn btn-back" id="backToSearchFromBookings">← New Search</button>
+                <h2>My Bookings</h2>
+            </div>
+            <div id="bookingsList" class="bookings-list"></div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>SkyBook &mdash; a practice project. Not a real booking service.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
